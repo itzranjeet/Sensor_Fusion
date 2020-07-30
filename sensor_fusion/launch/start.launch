@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="csvPathCamera" default="$(find sensor_fusion)/data/Bag_files/BagsInfo.csv" />
+   
+    <arg name="rvizConf" default="$(find sensor_fusion)/home/kpit/catkin_ws/src/ccad-master/src/sensor_fusion/rviz/Rviz.rviz" />
+
+    <group ns="sensorFusionGroup">
+
+    <node name="Node1" pkg="sensor_fusion" type="Node1" args="$(arg csvPathCamera)" />
+    
+   <!-- <node name="nodeConsole" pkg="rqt_console" type="rqt_console" /> -->
+    <node name="Rviz" pkg="rviz" type="rviz" args="-d $(arg rvizConf)" />
+
+</group>
+
+</launch>
